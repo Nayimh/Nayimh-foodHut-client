@@ -1,0 +1,29 @@
+.FoodHeading{
+    
+    letter-spacing: 5px;
+     font-weight: 700;
+     font-size: 3rem;
+     text-shadow: 2px 1px 2px rgb(230, 92, 92);
+     color: #F13274;
+     display: flex;
+     justify-content: center;
+
+}
+
+.foodcard{
+    height: 28rem;
+}
+
+.foodcard:hover{
+    background-color: #ffeceb;
+    box-shadow: 1px 1px 8px 1px rgb(216, 100, 123);
+    margin-top: -20px;
+ 
+    transition: ease-in-out;
+    
+}
+
+.cardimg{
+    height: 12rem;
+    object-fit: cover;
+}

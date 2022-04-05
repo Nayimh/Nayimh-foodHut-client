@@ -1,0 +1,42 @@
+.contact{
+    background-color: #ffeceb;
+    border-radius: 5px;
+}
+
+.contactBtn{
+    width: 100%;
+    border: none;
+    padding: 5px 5px;
+    background-color: #F13274;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: white;
+   
+}
+
+.contacth{
+    letter-spacing: 5px;
+    color: #F13274;
+    font-weight: 700;
+    position: relative;
+}
+
+.contacth::after{
+    position: absolute;
+    content: '';
+    height: 3px;   
+    bottom: -10px; 
+    margin: 0 auto;
+      left: 0;
+    right: 0;
+      width: 75%;
+      background: #F13274;
+}
+
+#head{
+    display: grid;
+    justify-content: center;
+    
+}

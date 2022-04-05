@@ -1,0 +1,15 @@
+
+.pimg{
+    height: 380px;
+    object-fit: cover;
+}
+
+.pepalal{
+    display: flex;
+    justify-content: space-around;
+}
+
+.bg{
+    background-color: #fac0bc;
+    
+}

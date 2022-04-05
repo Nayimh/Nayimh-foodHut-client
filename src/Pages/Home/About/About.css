@@ -1,0 +1,21 @@
+.about{
+    background-color: #ffeceb;
+}
+
+.headingt{
+    letter-spacing: 5px;
+     font-weight: 700;
+     font-size: 3rem;
+     text-shadow: 2px 1px 2px rgb(230, 92, 92);
+     color: rgb(105, 27, 60);
+}
+
+.aboutimg{
+    width: 100%;
+    border-radius: 50px;
+}
+
+.acenter{
+    display: grid;
+    justify-content: center;
+}
