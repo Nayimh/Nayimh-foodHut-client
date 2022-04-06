@@ -7,6 +7,7 @@ import { Card } from "react-bootstrap";
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 
 const HoomFoods = () => {
 
@@ -18,7 +19,7 @@ const HoomFoods = () => {
     const [foods, setFoods] = useState([]);
   
     useEffect(() => {
-      fetch("./foodMenu.json")
+      fetch("https://young-savannah-06380.herokuapp.com/products")
         .then((res) => res.json())
         .then((dt) => setFoods(dt));
     }, []);
@@ -45,7 +46,9 @@ const HoomFoods = () => {
         </Card.Text>
       </Card.Body>
       <Card.Footer>
-        <button className='button'>Order</button>
+      <Link to={`/order/${food?._id}`}>
+                                  <button className='button'>Order</button>
+                                  </Link>
       </Card.Footer>
     </Card>
           

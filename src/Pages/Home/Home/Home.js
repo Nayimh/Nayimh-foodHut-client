@@ -15,8 +15,8 @@ const Home = () => {
             <HeadMunu />
            <Banner />
             <HoomFoods />
-            {/* <Features />  */}
-            {/* <Partner /> */}
+            {/* <Features /> 
+            <Partner /> */}
             <About/>
             <Contact />
             <Footer/>

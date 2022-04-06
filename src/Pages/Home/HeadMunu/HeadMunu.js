@@ -24,6 +24,9 @@ const HeadMunu = () => {
                 <Nav.Link as={Link} to="/explore">
                   Explore
                 </Nav.Link>
+                <Nav.Link as={Link} to="/dashboard">
+                  Dashboard
+                </Nav.Link>
                 {/* <Nav.Link href="#pricing">Pricing</Nav.Link> */}
               </Nav>
               <Nav>

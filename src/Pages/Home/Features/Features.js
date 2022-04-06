@@ -17,8 +17,8 @@ const Features = () => {
 
     return (
         <div className="features mt-5 pt-5">
-      <div className="">
-        <h1 className=" ">What We Features</h1>
+      <div className="featuretitle">
+        <h1 className=" featuresHeading">What We Features</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Placeat adipisci, tenetur voluptatum dignissimos quo esse

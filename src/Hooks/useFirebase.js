@@ -14,7 +14,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsloading] = useState(true);
     const [authError, setAuthError] = useState('');
-    // const [admin, setAdmin] = useState(false);
+    const [admin, setAdmin] = useState(false);
     const googleProvider = new GoogleAuthProvider();
     const auth = getAuth();
     // register user
@@ -27,8 +27,8 @@ const useFirebase = () => {
             const newUser = { email, displayName: name };
 
           setUser(newUser);
-        //     // save user to db
-        //   saveUser(email, name, 'POST');
+            // save user to db
+          saveUser(email, name, 'POST');
 
 
             // send name to firebase 
@@ -75,8 +75,8 @@ const useFirebase = () => {
         signInWithPopup(auth, googleProvider)
         .then((result) => {
          
-        //   const user = result.user;
-        //   saveUser(user?.email, user?.displayName, 'PUT');
+          const user = result.user;
+          saveUser(user?.email, user?.displayName, 'PUT');
 
             const destination = location?.state?.from || '/';
           history.replace(destination);
@@ -123,23 +123,23 @@ const useFirebase = () => {
             .finally(()=> setIsloading(false));
   }
   
-//   const saveUser = (email, displayName, method) => {
-//     const user = { email, displayName }; 
-//     fetch('https://shielded-river-66834.herokuapp.com/users', {
-//       method: method,
-//       headers: {
-//         'content-type' : 'application/json'
-//       },
-//       body: JSON.stringify(user) 
-//     })
-//     .then()
-//   }
+  const saveUser = (email, displayName, method) => {
+    const user = { email, displayName }; 
+    fetch('https://young-savannah-06380.herokuapp.com/users', {
+      method: method,
+      headers: {
+        'content-type' : 'application/json'
+      },
+      body: JSON.stringify(user) 
+    })
+    .then()
+  }
   
-//   useEffect(() => {
-//     fetch(`https://shielded-river-66834.herokuapp.com/users/${user?.email}`)
-//       .then(res => res.json())
-//       .then(data => setAdmin(data?.admin))
-//   }, [user?.email])
+  useEffect(() => {
+    fetch(`https://young-savannah-06380.herokuapp.com/users/${user?.email}`)
+      .then(res => res.json())
+      .then(data => setAdmin(data?.admin))
+  }, [user?.email])
   
 
 
@@ -147,7 +147,7 @@ const useFirebase = () => {
 
     return {
       user,
-    //   admin,
+      admin,
         registerUser,
         login,
         logout,

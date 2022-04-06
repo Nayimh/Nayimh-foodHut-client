@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthProvider from "./Context/AuthProvider/AuthProvider";
+import DashboardHome from "./Pages/Dashboard/DashboardHome/DashboardHome";
 import Explore from "./Pages/Explore/Explore";
 
 import OrderHome from "./Pages/Explore/Order/OrderHome";
@@ -17,6 +18,7 @@ function App() {
           <Route path="/home" element={ <Home/> }/>
             <Route path="/explore" element={<Explore />} />
             <Route path="/order/:id" element={<OrderHome />} />
+            <Route path="/dashboard" element={<DashboardHome/> }/>
             <Route path="/login" element={ <Login/> }/>
             <Route path="/register" element={ <Register/> }/>
             

@@ -15,13 +15,13 @@ const Foods = () => {
     const [foods, setFoods] = useState([]);
   
     useEffect(() => {
-      fetch("./foodMenu.json")
+      fetch("https://young-savannah-06380.herokuapp.com/products")
         .then((res) => res.json())
         .then((dt) => setFoods(dt));
     }, []);
     return (
-        <div className="mt-5">
-        <h1 className="FoodHeading mx-auto">Delicius Food For you</h1>
+        <div className="mt-5 pt-5">
+        <h1 className="FoodHeading mx-auto ">Delicius Food For you</h1>
         <div className="mt-5">
           <div className="container">
             <div className="row">
@@ -39,7 +39,7 @@ const Foods = () => {
         </Card.Text>
       </Card.Body>
                           <Card.Footer>
-                              <Link to={`/order/${food?.id}`}>
+                              <Link to={`/order/${food?._id}`}>
                                   <button className='button'>Order</button>
                                   </Link>
       </Card.Footer>
