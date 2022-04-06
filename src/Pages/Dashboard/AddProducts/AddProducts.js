@@ -37,8 +37,9 @@ const AddProducts = () => {
 
     return (
         <div>
-             <Container className="bg px-4 py-5 mb-4 rounded mt-5 pt-5 d-flex">
-           
+            <h1 className='text-center mt-5 pt-5 FoodHeading'>Add New Products</h1>
+             <Container className="bg px-4 py-5 mb-4 rounded mt-5 d-flex">
+                
             <Form className=" col-sm-12 col-md-12 mb-3 mx-auto " onSubmit={handleProductSubmit}>
                 <Row className="mb-3">
                     <Form.Group as={Col} >
