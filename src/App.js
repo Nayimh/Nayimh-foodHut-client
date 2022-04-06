@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthProvider from "./Context/AuthProvider/AuthProvider";
+import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import DashboardHome from "./Pages/Dashboard/DashboardHome/DashboardHome";
 import Explore from "./Pages/Explore/Explore";
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/explore" element={<Explore />} />
             <Route path="/order/:id" element={<OrderHome />} />
             <Route path="/dashboard" element={<DashboardHome/> }/>
+            <Route path="/dashboards" element={<Dashboard/> }/>
             <Route path="/login" element={ <Login/> }/>
             <Route path="/register" element={ <Register/> }/>
             
