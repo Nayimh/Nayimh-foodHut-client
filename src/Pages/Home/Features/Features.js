@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import './Features.css'
+import './Features.css';
 import img1 from '../../../Image/icon/icon3.png'
 import img2 from '../../../Image/icon/icon2.png'
 import img3 from '../../../Image/icon/icon4.png'
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Card } from 'react-bootstrap';
 
 const Features = () => {
 
@@ -32,41 +33,38 @@ const Features = () => {
               <div className="col-lg-4 col-md-3 col-sm-2">
                   
 
-          <div data-aos="fade-up-right" data-aos-duration="2000" className="fcard">
-            <div>
-              <img className="cardImg" src={img2} alt="" />
-            </div>
-            <div>
-                          <h3 className="fctitle">The Best Courier</h3>
-                          <p className="fcpara">Lorem ipsum dolor sit amet consectetur, <br /> adipisicing elit. Praesentium, vitae.</p>
-            </div>
-                  </div>
+              <Card className='fcard' data-aos="fade-up-right" data-aos-duration="2000">
+    <Card.Img className='fImg' variant="top" src={img3} />
+    <Card.Body>
+      <Card.Title className='fctitle'>24/7 SUPPORT</Card.Title>
+      
+    </Card.Body>
+    
+  </Card>
                   
 
 
         </div>
               <div className="col-lg-4 col-md-3 col-sm-2">
-              <div data-aos="fade-up" data-aos-duration="2000" className="fcard">
-            <div>
-              <img className="cardImg" src={img1} alt="" />
-            </div>
-            <div>
-                          <h3 className="fctitle">Easy To Use</h3>
-                          <p className="fcpara">Lorem ipsum dolor sit amet consectetur, <br /> adipisicing elit. Praesentium, vitae.</p>
-            </div>
-                  </div>
+              <Card className='fcard' data-aos="fade-up" data-aos-duration="2000">
+    <Card.Img className='fImg' variant="top" src={img2} />
+    <Card.Body>
+      <Card.Title className='fctitle'>The Best Courier</Card.Title>
+      
+    </Card.Body>
+   
+  </Card>
 
         </div>
               <div className="col-lg-4 col-md-3 col-sm-2">
-              <div data-aos="fade-up-left" data-aos-duration="3000" className="fcard">
-            <div>
-              <img className="cardImg" src={img3} alt="" />
-            </div>
-            <div>
-                          <h3 className="fctitle">24/7 Support</h3>
-                          <p className="fcpara">Lorem ipsum dolor sit amet consectetur, <br /> adipisicing elit. Praesentium, vitae.</p>
-            </div>
-                  </div>
+              <Card  className='fcard' data-aos="fade-up-left" data-aos-duration="2000">
+    <Card.Img className='fImg' variant="top" src={img1} />
+    <Card.Body>
+      <Card.Title className='fctitle'>Easy To Use</Card.Title>
+      
+    </Card.Body>
+    
+  </Card>
 
         </div>
               </div>
