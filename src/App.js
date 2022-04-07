@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthProvider from "./Context/AuthProvider/AuthProvider";
 import AddProducts from "./Pages/Dashboard/AddProducts/AddProducts";
+import AdminRoute from "./Pages/Dashboard/AdminRoute/AdminRoute";
 import AllProductManage from "./Pages/Dashboard/AllProductManage/AllProductManage";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 // import DashboardHome from "./Pages/Dashboard/DashboardHome/DashboardHome";
@@ -29,10 +30,10 @@ function App() {
             <Route path="/dashboards" element={<Dashboard />}>
               
              
-            <Route path="makeAdmin" element={<MakeAdmin/> }/>
-            <Route path="manageAllProduct" element={<AllProductManage/> }/>
-            <Route path="manageAllOrders" element={<ManageAllProducts/> }/>
-            <Route path="addNewProduct" element={<AddProducts/> }/>
+            <Route path="makeAdmin" element={<AdminRoute><MakeAdmin/></AdminRoute> }/>
+            <Route path="manageAllProduct" element={<AdminRoute><AllProductManage/></AdminRoute> }/>
+            <Route path="manageAllOrders" element={<AdminRoute><ManageAllProducts/></AdminRoute> }/>
+            <Route path="addNewProduct" element={<AdminRoute><AddProducts/></AdminRoute> }/>
               <Route path="myOrder" element={<MyOrder />} />
              </Route>
             <Route path="/login" element={ <Login/> }/>

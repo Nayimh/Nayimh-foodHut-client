@@ -7,7 +7,9 @@ const Private = ({ children }) => {
 
   let location = useLocation();
   if (isLoading) {
-    return <div></div>;
+    return <div className="spinner-border text-success" role="status">
+    <span className="visually-hidden">Loading...</span>
+</div>;
   }
   if (user?.email) {
     return children;
