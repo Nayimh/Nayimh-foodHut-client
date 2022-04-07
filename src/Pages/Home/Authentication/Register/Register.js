@@ -16,7 +16,9 @@ const Register = () => {
     const [loginData, setLoginData] = useState({});
     const { registerUser, isLoading, user, authError } = useAuth();
 
-    const history = useNavigate();
+  const navigate = useNavigate();
+  
+ 
 
     const handleChange = (e) => {
         const field = e.target.name;
@@ -35,8 +37,9 @@ const Register = () => {
           loginData?.email,
           loginData?.password,
           loginData?.name,
-          history
+          navigate
         );
+    
         e.preventDefault();
       };
     

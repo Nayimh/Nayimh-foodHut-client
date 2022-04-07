@@ -18,7 +18,7 @@ const Login = () => {
 
   const location = useLocation();
 
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleOnchange = (e) => {
     const field = e.target.name;
@@ -29,13 +29,16 @@ const Login = () => {
   };
 
   const handleLogin = (e) => {
-    login(loginData?.email, loginData?.password, location, history);
-
+    login(loginData?.email, loginData?.password, location, navigate);
+    const destination = location?.state?.from || " ";
+    navigate?.replace(destination);
     e.preventDefault();
   };
 
   const handleGoogleSignin = () => {
-    googleSignin(location, history);
+    const destination = location?.state?.from || " ";
+    navigate?.replace(destination);
+    googleSignin(location, navigate);
   };
 
   return (

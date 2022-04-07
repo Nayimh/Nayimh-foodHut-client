@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './dashboard.css';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -7,23 +7,21 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
+
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { FiLogOut } from "react-icons/fi";
 import { RiAdminFill } from "react-icons/ri";
 import { MdManageAccounts } from "react-icons/md";
-import { MdProductionQuantityLimits } from "react-icons/md";
 import { MdAddShoppingCart } from "react-icons/md";
-import { FcShop } from "react-icons/fc";
 import { FaShoppingBasket } from "react-icons/fa";
+import { AiFillHome } from "react-icons/ai";
+
 import useAuth from '../../../Hooks/useAuth';
+import { Link, Outlet } from 'react-router-dom';
 
 
 const drawerWidth = 240;
@@ -33,8 +31,8 @@ function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
-    const { user } = useAuth();
-    const { admin } = useAuth();
+   
+    const { admin, user, logout } = useAuth();
   
     const handleDrawerToggle = () => {
       setMobileOpen(!mobileOpen);
@@ -43,31 +41,68 @@ function Dashboard(props) {
     const drawer = (
       <div>
             <Toolbar />
-            <List>
+            <List className='bg' sx={{boxShadow: 3}}>
                 <ListItem>
-                    <h4 >Welcome { user?.name }</h4>
+                
+                    <h4 style={{ color: '#c2185b', boxShadow: 1, padding: '1rem' }}>{user?.displayName}  </h4>
                 </ListItem>
+                   
+                
             </List>
-        <Divider />
+       
+            {admin ? <List>
             <ListItem>
-                <p style={{color: '#c2185b', letterSpacing: '1px'}}>Make Admin <RiAdminFill/> </p>
+                
+            <Link className='dashLink' to={`/home`}><p style={{color: '#c2185b', letterSpacing: '1px', }}>Home <AiFillHome/> </p></Link>
+                
             </ListItem>
             <ListItem>
-                <p style={{color: '#c2185b', letterSpacing: '1px'}}>MANAGE All PODUCTS <MdManageAccounts/> </p>
+            <Link className='dashLink' to={`/dashboards/makeAdmin`}><p style={{color: '#c2185b', letterSpacing: '1px', }}>Make Admin <RiAdminFill/> </p></Link>
+                
             </ListItem>
             <ListItem>
-                <p style={{color: '#c2185b', letterSpacing: '1px'}}>ADD NEW PODUCTS <MdAddShoppingCart/> </p>
+            <Link className='dashLink' to={`/dashboards/manageAllProduct`}><p style={{color: '#c2185b', letterSpacing: '1px'}}>MANAGE PRODUCTS <MdManageAccounts/> </p></Link>
+                
             </ListItem>
             <ListItem>
-                <p style={{color: '#c2185b', letterSpacing: '1px'}}>MANAGE All ORDERS <MdManageAccounts/> </p>
+            <Link className='dashLink' to={`/dashboards/manageAllOrders`}><p style={{color: '#c2185b', letterSpacing: '1px'}}>MANAGE All ORDERS <MdManageAccounts/> </p></Link>
+                
             </ListItem>
+           
             <ListItem>
-                <p style={{color: '#c2185b', letterSpacing: '1px'}}>MY ORDERS <FaShoppingBasket/> </p>
+            <Link className='dashLink' to={`/dashboards/addNewProduct`}><p style={{color: '#c2185b', letterSpacing: '1px'}}>ADD NEW PODUCTS <MdAddShoppingCart/> </p></Link>
+                
+            </ListItem>
+            
+            <ListItem>
+            <Link className='dashLink' to={`/dashboards/myOrder`}><p style={{color: '#c2185b', letterSpacing: '1px'}}>MY ORDERS <FaShoppingBasket/> </p></Link>
+                
             </ListItem>
         
             <ListItem>
-                <p style={{color: '#c2185b', letterSpacing: '1px'}}>LOGUT <FiLogOut/> </p>
+            <Link className='dashLink' to={`/home`}><button className='btn' onClick={logout} style={{color: '#c2185b', letterSpacing: '1px'}}>LOGUT <FiLogOut/> </button></Link>
+                
+                </ListItem>
+                </List>
+                :
+                
+                <List>
+                    <ListItem>
+                
+                <Link className='dashLink' to={`/home`}><p style={{color: '#c2185b', letterSpacing: '1px', }}>Home <AiFillHome/> </p></Link>
+                    
+                </ListItem>
+                    <ListItem>
+            <Link className='dashLink' to={`/dashboards/myOrder`}><p style={{color: '#c2185b', letterSpacing: '1px'}}>MY ORDERS <FaShoppingBasket/> </p></Link>
+                
             </ListItem>
+        
+            <ListItem>
+            <Link className='dashLink' to={`/home`}><button className='btn' onClick={logout} style={{color: '#c2185b', letterSpacing: '1px'}}>LOGUT <FiLogOut/> </button></Link>
+                
+                </ListItem>
+        </List>      
+        }
         <Divider />
         
       </div>
@@ -140,7 +175,11 @@ function Dashboard(props) {
           <Toolbar />
           <Typography className='bg' sx={{ boxShadow: 3, padding: '3rem' }}>
             <h1  className=' text-center bannerHeading'>Welcome to Dashboard</h1>
-          </Typography>
+                </Typography>
+          
+                <div className="col-sm-12 col-lg-12" style={{ minHeight: "100vh" }}>
+                <Outlet />
+        </div>
           
         </Box>
       </Box>
